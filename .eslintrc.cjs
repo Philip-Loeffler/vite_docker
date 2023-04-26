@@ -1,14 +1,66 @@
 module.exports = {
-  env: { browser: true, es2020: true },
+  parser: "@typescript-eslint/parser",
   extends: [
-    'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:react-hooks/recommended',
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "plugin:prettier/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:import/typescript",
   ],
-  parser: '@typescript-eslint/parser',
-  parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
-  plugins: ['react-refresh'],
-  rules: {
-    'react-refresh/only-export-components': 'warn',
+  plugins: [
+    "@typescript-eslint",
+    "react",
+    "prettier",
+    "react-hooks",
+    "jsx-a11y",
+    "import",
+  ],
+  env: {
+    browser: true,
+    node: true,
+    es6: true,
   },
-}
+  parserOptions: {
+    ecmaVersion: 2022,
+    sourceType: "module",
+    ecmaFeatures: {
+      jsx: true,
+    },
+  },
+  rules: {
+    "import/order": ["warn", { "newlines-between": "always" }],
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/triple-slash-reference": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-empty-interface": "warn",
+    "react/no-direct-mutation-state": "off",
+    "react/no-deprecated": "off",
+    "react/no-string-refs": "off",
+    "react/react-in-jsx-scope": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "react/require-render-return": "off",
+    "react/jsx-filename-extension": [
+      "warn",
+      {
+        extensions: [".jsx", ".tsx"],
+      },
+    ],
+    "react/prop-types": "off",
+    "react/display-name": "off",
+    "@typescript-eslint/no-unused-vars": ["warn", { ignoreRestSiblings: true }],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "newline-before-return": "warn",
+    "prefer-const": "warn",
+    "no-console": ["warn", { allow: ["warn", "error"] }],
+    "prettier/prettier": "warn",
+    curly: "error",
+  },
+  settings: {
+    react: {
+      version: "detect",
+    },
+  },
+};
